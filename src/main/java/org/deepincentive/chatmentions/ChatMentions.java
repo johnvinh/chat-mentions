@@ -10,9 +10,4 @@ public final class ChatMentions extends JavaPlugin {
         // Plugin startup logic
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
     }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
 }
