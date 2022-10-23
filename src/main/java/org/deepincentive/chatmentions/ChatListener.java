@@ -1,6 +1,7 @@
 package org.deepincentive.chatmentions;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,6 +25,11 @@ public class ChatListener implements Listener {
                 return;
             }
             target.playSound(target.getLocation(), mentionSound, 1.0F, 1.0F);
+            target.sendTitle(ChatColor.RED + "You got mentioned!",
+                    ChatColor.YELLOW + e.getPlayer().getName() + " mentioned you!",
+                    20,
+                    100,
+                    20);
         }
     }
 }
