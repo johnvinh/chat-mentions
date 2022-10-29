@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 public class ChatListener implements Listener {
     private final Pattern mentionPattern = Pattern.compile("@([A-Za-z0-9_]+)", Pattern.CASE_INSENSITIVE);
     private final Sound mentionSound = Sound.ENTITY_EXPERIENCE_ORB_PICKUP;
+    private static final int TICKS_PER_SECOND = 20;
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e) {
@@ -27,9 +28,9 @@ public class ChatListener implements Listener {
             target.playSound(target.getLocation(), mentionSound, 1.0F, 1.0F);
             target.sendTitle(ChatColor.RED + "You got mentioned!",
                     ChatColor.YELLOW + e.getPlayer().getName() + " mentioned you!",
-                    20,
-                    100,
-                    20);
+                    TICKS_PER_SECOND,
+                    TICKS_PER_SECOND * 5,
+                    TICKS_PER_SECOND);
         }
     }
 }
